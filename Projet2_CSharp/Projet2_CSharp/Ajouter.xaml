@@ -4,36 +4,42 @@
              x:Class="Projet2_CSharp.Ajouter">
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout HorizontalOptions="Center">
-            <Label Text="Ajouter un etudiant" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large"></Label>
-                <Image x:Name="image" />
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="Ajouter un etudiant" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large"></Label>
+                <Image x:Name="image"  HeightRequest="100"/>
+                <Button x:Name="Edit" Clicked="photo"></Button>
                 <StackLayout Orientation="Horizontal">
-                <Label Text="CNE"  VerticalOptions="Center" WidthRequest="100"/>
-                <Entry x:Name="cne" VerticalOptions="Center" WidthRequest="220" Placeholder="CNE" />
+                    <Label Text="CNE"  VerticalOptions="Center" WidthRequest="100"/>
+                    <Entry x:Name="cne" VerticalOptions="Center" WidthRequest="220" Placeholder="CNE" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Nom" VerticalOptions="Center"  WidthRequest="100"/>
+                    <Entry x:Name="nom" WidthRequest="220" Placeholder="Nom"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Prenom" VerticalOptions="Center"  WidthRequest="100" />
+                    <Entry x:Name="prenom" VerticalOptions="Center" WidthRequest="220" Placeholder="Prenom"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Sexe" VerticalOptions="Center"  WidthRequest="100" />
+                    <Picker Title="Sexe" x:Name="sexe" WidthRequest="220">
+                    </Picker>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Date de Naissance" VerticalOptions="Center"  WidthRequest="100"/>
+                    <DatePicker x:Name="date" VerticalOptions="Center" WidthRequest="220"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Filiere" VerticalOptions="Center"  WidthRequest="100" />
+                    <Picker Title="Filiere" x:Name="filiere" WidthRequest="220">
+                    </Picker>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="ajouter" Text="Ajouter" VerticalOptions="Center"  WidthRequest="110" Clicked="addEtudiant"/>
+                    <Button x:Name="Modifier" Text="Modifier"  VerticalOptions="Center" WidthRequest="110" Clicked="Delete"/>
+                    <Button x:Name="Supprimer" Text="Supprimer"  VerticalOptions="Center" WidthRequest="110" Clicked="edit"/>
+                </StackLayout>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Nom" VerticalOptions="Center"  WidthRequest="100"/>
-                <Entry x:Name="nom" WidthRequest="220" Placeholder="Nom"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Prenom" VerticalOptions="Center"  WidthRequest="100" />
-                <Entry x:Name="prenom" VerticalOptions="Center" WidthRequest="220" Placeholder="Prenom"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" >
-                <Label Text="Sexe" VerticalOptions="Center"  WidthRequest="100" />
-                <Picker Title="Sexe" x:Name="sexe" WidthRequest="220">
-                </Picker>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Date de Naissance" VerticalOptions="Center"  WidthRequest="100"/>
-                <DatePicker x:Name="date" VerticalOptions="Center" WidthRequest="220"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="ajouter" Text="Ajouter" VerticalOptions="Center"  WidthRequest="110" Clicked="addEtudiant"/>
-                <Button x:Name="Modifier" Text="Modifier"  VerticalOptions="Center" WidthRequest="110" Clicked="Delete"/>
-                <Button x:Name="Supprimer" Text="Supprimer"  VerticalOptions="Center" WidthRequest="110" Clicked="edit"/>
-            </StackLayout>
-        </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

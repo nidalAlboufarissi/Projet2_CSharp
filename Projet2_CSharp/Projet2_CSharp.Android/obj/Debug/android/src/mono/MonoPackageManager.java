@@ -108,6 +108,11 @@ class MonoPackageManager_Resources {
 		/* We need to ensure that "Projet2_CSharp.Android.dll" comes first in this list. */
 		"Projet2_CSharp.Android.dll",
 		"FormsViewGroup.dll",
+		"Plugin.CurrentActivity.dll",
+		"Plugin.Media.Abstractions.dll",
+		"Plugin.Media.dll",
+		"Plugin.Permissions.Abstractions.dll",
+		"Plugin.Permissions.dll",
 		"Projet2_CSharp.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_green.dll",

@@ -30,3 +30,8 @@ SQLitePCLRaw.provider.e_sqlite3
 netstandard
 System.Reflection.Extensions
 System.ComponentModel
+Plugin.CurrentActivity
+Plugin.Media.Abstractions
+Plugin.Media
+Plugin.Permissions.Abstractions
+Plugin.Permissions

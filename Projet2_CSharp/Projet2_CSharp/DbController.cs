@@ -34,13 +34,25 @@ namespace Projet2_CSharp
             db.CreateTableAsync<Filiere>().Wait();
             db.CreateTableAsync<Etudiant>().Wait();
 
-           /* db.DeleteAsync(new Filiere() { nom_filiere="informatique" ,id_filiere=4});
-            db.DeleteAsync(new Filiere() { nom_filiere = "GTR", id_filiere=5 });
-            db.DeleteAsync(new Filiere() { nom_filiere = "Mecanique", id_filiere=6 });*/
-            //db.InsertAsync(new Etudiant() { })
+            /* db.DeleteAsync(new Filiere() { nom_filiere="informatique" ,id_filiere=4});
+             db.DeleteAsync(new Filiere() { nom_filiere = "GTR", id_filiere=5 });
+             db.DeleteAsync(new Filiere() { nom_filiere = "Mecanique", id_filiere=6 });*/
+            db.InsertAsync(new Etudiant() { cne = "452", nom = "aitelhad", prenom = "abdelhakim", date_naissance = DateTime.Now, sexe = "Male", id_fil = 1 });
 
 
 
+        }
+        public Task<Filiere> GetFilById(int id)
+        {
+            return db.Table<Filiere>().Where(i => i.id_filiere == id).FirstOrDefaultAsync();
+        }
+        public Task<List<Etudiant>> GetEtudByFil(int id)
+        {
+            return db.Table<Etudiant>().Where(i => i.id_fil == id).ToListAsync();
+        }
+        public Task<Filiere> GetFilByName(string name)
+        {
+            return db.Table<Filiere>().Where(i => i.nom_filiere == name).FirstOrDefaultAsync();
         }
 
         public Task<Admin> GetItemAsync(int id)
@@ -77,14 +89,9 @@ namespace Projet2_CSharp
         }
         public Task<int> SaveItemAsync(Etudiant item)
         {
-            if (item.cne != null)
-            {
-                return db.UpdateAsync(item);
-            }
-            else
-            {
-                return db.InsertAsync(item);
-            }
+
+            return db.InsertAsync(item);
+
         }
     }
 }

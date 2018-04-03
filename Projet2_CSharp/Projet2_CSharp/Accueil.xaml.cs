@@ -11,32 +11,22 @@ using Xamarin.Forms.Xaml;
 
 namespace Projet2_CSharp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Accueil : ContentPage
-	{
-        
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Accueil : ContentPage
+    {
 
+        ObservableCollection<Etudiant> etudiants;
         public Accueil()
         {
-        
-            Label header = new Label
-            {
-                Text = "Rechercher etudiant par filiere",
-                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
-                HorizontalOptions = LayoutOptions.Center
-            };
+            InitializeComponent();
+            etudiants = new ObservableCollection<Etudiant>();
 
-            Picker picker = new Picker
-            {
-                Title = "Filiere",
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
-
+            listView.ItemsSource = etudiants;
             foreach (var colorName in App.Database.GetAllFils().Result)
             {
                 picker.Items.Add(colorName.nom_filiere);
             }
-            
+
 
             picker.SelectedIndexChanged += (sender, args) =>
             {
@@ -49,19 +39,33 @@ namespace Projet2_CSharp
                     string colorName = picker.Items[picker.SelectedIndex];
                 }
             };
-
-
-            // Build the page.
-            this.Content = new StackLayout
-            {
-                Children =
-                {
-                    header,
-                    picker,
-                    
-                }
-            };
-
         }
+        void afficher(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+            {
+                return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+            }
+            Etudiant ed = (Etudiant)e.SelectedItem;
+            Navigation.PushAsync(new Projet2_CSharp.Ajouter(ed));
+
+            //((ListView)sender).SelectedItem = null; //uncomment line if you want to disable the visual selection state.
+        }
+        void OnPickerSelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            int selectedIndex = picker.SelectedIndex;
+            string selectedItem = picker.SelectedItem.ToString();
+
+            if (selectedIndex != -1)
+            {
+
+                Filiere fil = App.Database.GetFilByName(selectedItem).Result;
+                etudiants.Clear();
+                foreach (var item in App.Database.GetEtudByFil(fil.id_filiere).Result)
+                    etudiants.Add(item);
+            }
+        }
+
     }
 }

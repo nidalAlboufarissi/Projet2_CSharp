@@ -15,25 +15,38 @@ namespace Projet2_CSharp
     public partial class Ajouter : ContentPage
     {
         Etudiant et;
+        List<Filiere> l = App.Database.GetAllFils().Result;
+
         public Ajouter(Etudiant etud)
         {
-            et = etud;
             InitializeComponent();
             image.Source = ImageSource.FromResource("Projet2_CSharp.nobodyM.jpg");
-
-            List<Filiere> l = App.Database.GetAllFils().Result;
             foreach (var colorName in l)
             {
                 filiere.Items.Add(colorName.nom_filiere);
             }
             sexe.Items.Add("Male");
             sexe.Items.Add("Female");
-            cne.Text = et.cne;
-            filiere.SelectedItem = App.Database.GetFilById(etud.id_fil).Result.nom_filiere;
-            prenom.Text = et.prenom;
-            nom.Text = et.nom;
-            date.Date = et.date_naissance;
-            sexe.SelectedItem = et.sexe;
+            if (etud.id_fil == 0)
+            {
+                cne.Text = "";
+                prenom.Text = "";
+                nom.Text = "";
+                date.Date = DateTime.Now;
+                Modifier.IsEnabled = false;
+                Supprimer.IsEnabled = false;
+
+            }
+            else
+            {
+                et = etud;
+                cne.Text = et.cne;
+                filiere.SelectedItem = App.Database.GetFilById(etud.id_fil).Result.nom_filiere;
+                prenom.Text = et.prenom;
+                nom.Text = et.nom;
+                date.Date = et.date_naissance;
+                sexe.SelectedItem = et.sexe;
+            }
         }
         private void addEtudiant(object sender, EventArgs e)
         {
@@ -48,26 +61,32 @@ namespace Projet2_CSharp
                 id_fil = App.Database.GetFilByName(filiere.SelectedItem.ToString()).Result.id_filiere
             };
             App.Database.SaveItemAsync(et);
-            DisplayAlert("insertion", "", "ok");
+            DisplayAlert("insertion",et.nom+ "a été ajouté", "ok");
             cne.Text = "";
             prenom.Text = "";
             nom.Text = "";
             date.Date = DateTime.Now;
+            MessagingCenter.Send(this, "MyItemsChanged");
+
         }
         private void edit(object sender, EventArgs e)
         {
-            Etudiant et = new Etudiant()
+            Etudiant etud = new Etudiant()
             {
-                cne = cne.Text,
+                cne = et.cne,
                 prenom = prenom.Text,
                 nom = nom.Text,
                 date_naissance = date.Date,
+                sexe=sexe.SelectedItem.ToString(),
+                id_fil=App.Database.GetFilByName(filiere.SelectedItem.ToString()).Result.id_filiere
                 // image = new ImageSource("nobdyM.jpg"),
             };
-            App.Database.SaveItemAsync(et);
-            DisplayAlert("insertion", "", "ok");
+            App.Database.UpdatEtud(etud);
+            DisplayAlert("Modification", etud.nom+" a été modifié", "ok");
+            MessagingCenter.Send(this, "MyItemsChanged");
+
         }
-        private void Delete(object sender, EventArgs e)
+        private async  void Delete(object sender, EventArgs e)
         {
             Etudiant et = new Etudiant()
             {
@@ -75,14 +94,21 @@ namespace Projet2_CSharp
                 prenom = prenom.Text,
                 nom = nom.Text,
                 date_naissance = date.Date,
+                sexe=sexe.SelectedItem.ToString(),
+                id_fil = App.Database.GetFilByName(filiere.SelectedItem.ToString()).Result.id_filiere
                 // image = new ImageSource("nobdyM.jpg"),
             };
-            App.Database.delete(et);
+            var answer = await DisplayAlert("Confirmation?", "l'étudiant " + et.nom + " va étre supprimée ?", "Oui", "Non");
+            if (answer)
+            {
+                await App.Database.delete(et);
+            }
             cne.Text = "";
             prenom.Text = "";
             nom.Text = "";
             date.Date = DateTime.Now;
-            DisplayAlert("supprimer", "", "ok");
+            MessagingCenter.Send(this, "MyItemsChanged");
+
 
 
 

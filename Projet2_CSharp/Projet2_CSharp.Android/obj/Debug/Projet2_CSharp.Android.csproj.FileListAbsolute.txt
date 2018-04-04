@@ -201,6 +201,7 @@ C:\Users\Nidhak\Desktop\Projet2_CSharp\Projet2_CSharp\Projet2_CSharp.Android\obj
 C:\Users\Nidhak\Desktop\Projet2_CSharp\Projet2_CSharp\Projet2_CSharp.Android\obj\Debug\android\assets\Plugin.Media.Abstractions.pdb
 C:\Users\Nidhak\Desktop\Projet2_CSharp\Projet2_CSharp\Projet2_CSharp.Android\obj\Debug\android\assets\Plugin.Permissions.Abstractions.pdb
 C:\Users\Nidhak\Desktop\Projet2_CSharp\Projet2_CSharp\Projet2_CSharp.Android\bin\Debug\Projet2_CSharp.Android.dll
+C:\Users\Nidhak\Desktop\Projet2_CSharp\Projet2_CSharp\Projet2_CSharp.Android\obj\Debug\linksrc\Projet2_CSharp.pdb
 C:\Users\Nidhak\Desktop\Projet2_CSharp\Projet2_CSharp\Projet2_CSharp.Android\obj\Debug\linksrc\Projet2_CSharp.Android.dll.mdb
 C:\Users\Nidhak\Desktop\Projet2_CSharp\Projet2_CSharp\Projet2_CSharp.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\Nidhak\Desktop\Projet2_CSharp\Projet2_CSharp\Projet2_CSharp.Android\obj\Debug\linksrc\Plugin.Media.dll.mdb

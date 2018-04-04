@@ -2,13 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Projet2_CSharp"
-             x:Class="Projet2_CSharp.MainPage">
-
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Entry x:Name="login" Placeholder="Login"/>
-        <Entry x:Name="password" Placeholder="Password" IsPassword="True"/>
-        <Button Text="login" Clicked="Button_Clicked"  />
+             x:Class="Projet2_CSharp.MainPage"
+             BackgroundColor="White"
+             Title="Bienvenue"
+             >
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Image x:Name="cadi" WidthRequest="100" HorizontalOptions="Start"/>
+            <Image x:Name="ensa" WidthRequest="100" HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+    <StackLayout  VerticalOptions="Center" Margin="30">
+            <StackLayout Orientation="Horizontal">
+                <Image x:Name="user" WidthRequest="20"/>
+                <Entry x:Name="login" Placeholder="Login" WidthRequest="270"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image x:Name="pass" WidthRequest="20"/>
+                <Entry x:Name="password" Placeholder="Password" IsPassword="True" WidthRequest="270"/>
+            </StackLayout>
+            <Button Text="login" Clicked="Button_Clicked"  />
         <Label x:Name="msg" Text="" TextColor="Red"/>
     </StackLayout>
-
+    </StackLayout>
 </ContentPage>

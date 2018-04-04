@@ -19,6 +19,8 @@ namespace Projet2_CSharp
         public Accueil()
         {
             InitializeComponent();
+            add.Source = ImageSource.FromResource("Projet2_CSharp.adduser.ico");
+
             etudiants = new ObservableCollection<Etudiant>();
 
             listView.ItemsSource = etudiants;
@@ -51,11 +53,12 @@ namespace Projet2_CSharp
 
             //((ListView)sender).SelectedItem = null; //uncomment line if you want to disable the visual selection state.
         }
+        Picker pick =new Picker();
         void OnPickerSelectedIndexChanged(object sender, EventArgs e)
         {
-            var picker = (Picker)sender;
-            int selectedIndex = picker.SelectedIndex;
-            string selectedItem = picker.SelectedItem.ToString();
+            pick = (Picker)sender;
+            int selectedIndex = pick.SelectedIndex;
+            string selectedItem = pick.SelectedItem.ToString();
 
             if (selectedIndex != -1)
             {
@@ -65,6 +68,22 @@ namespace Projet2_CSharp
                 foreach (var item in App.Database.GetEtudByFil(fil.id_filiere).Result)
                     etudiants.Add(item);
             }
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (pick.SelectedIndex != -1)
+            {
+                Filiere fil = App.Database.GetFilByName(pick.SelectedItem.ToString()).Result;
+                etudiants.Clear();
+                foreach (var item in App.Database.GetEtudByFil(fil.id_filiere).Result)
+                    etudiants.Add(item);
+            }
+            //LoadServerRegisteredCitizen is a method which i used to load items inside the listview        
+        }
+        private void ajouter(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Projet2_CSharp.Ajouter(new Etudiant()));
         }
 
     }

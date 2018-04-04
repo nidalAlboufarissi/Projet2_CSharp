@@ -1,12 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Projet2_CSharp.FilierePage">
+             x:Class="Projet2_CSharp.FilierePage"
+             Title="Gestion des filieres">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="La liste des Filieres" FontSize="Large" HorizontalOptions="Center"/>
+            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Vertical" WidthRequest="70" >
+                <Image x:Name="add" WidthRequest="100">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ajouter"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                    <Image x:Name="edit"  WidthRequest="100">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="modifier"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                    <Image x:Name="delete"  WidthRequest="100">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="del"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+                <ScrollView HeightRequest="500" WidthRequest="200" Margin="40">
+                <ListView  x:Name="listView" SeparatorVisibility="Default"  SeparatorColor="Black"  RowHeight="60">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding nom_filiere}" FontSize="Medium"/>
+                                    <Label Text="{Binding responsable}"	FontSize="Small"  />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                </ScrollView>
+            </StackLayout>
+            <Label x:Name="ans"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -5,11 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="add.png" />
+    <None Remove="adduser.ico" />
+    <None Remove="cadi.jpg" />
+    <None Remove="delete %281%29.png" />
+    <None Remove="edit.jpg" />
+    <None Remove="icon.jpg" />
     <None Remove="nobodyM.jpg" />
+    <None Remove="password.png" />
+    <None Remove="user.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="add.png" />
+    <EmbeddedResource Include="adduser.ico" />
+    <EmbeddedResource Include="cadi.jpg" />
+    <EmbeddedResource Include="delete (1).png" />
+    <EmbeddedResource Include="edit.jpg" />
+    <EmbeddedResource Include="icon.jpg" />
     <EmbeddedResource Include="nobodyM.jpg" />
+    <EmbeddedResource Include="password.png" />
+    <EmbeddedResource Include="user.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +48,9 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Accueil.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AddFil.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Ajouter.xaml">

@@ -4,6 +4,7 @@
              x:Class="Projet2_CSharp.Ajouter">
     <ContentPage.Content>
         <ScrollView>
+            
             <StackLayout HorizontalOptions="Center">
                 <Label Text="Ajouter un etudiant" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large"></Label>
                 <Image x:Name="image"  HeightRequest="100"/>
@@ -36,8 +37,8 @@
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Button x:Name="ajouter" Text="Ajouter" VerticalOptions="Center"  WidthRequest="110" Clicked="addEtudiant"/>
-                    <Button x:Name="Modifier" Text="Modifier"  VerticalOptions="Center" WidthRequest="110" Clicked="Delete"/>
-                    <Button x:Name="Supprimer" Text="Supprimer"  VerticalOptions="Center" WidthRequest="110" Clicked="edit"/>
+                    <Button x:Name="Modifier" Text="Modifier"  VerticalOptions="Center" WidthRequest="110" Clicked="edit"/>
+                    <Button x:Name="Supprimer" Text="Supprimer"  VerticalOptions="Center" WidthRequest="110" Clicked="Delete"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

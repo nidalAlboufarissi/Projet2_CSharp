@@ -24,7 +24,7 @@
                                         <ColumnDefinition Width="30"/>
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="{Binding IconSource}" />
+                                    <Image Source="{Binding IconSource, StringFormat='Projet2_CSharp.{0}'}" />
                                     <Label Grid.Column="1" Text="{Binding Title}" />
                                 </Grid>
                             </ViewCell>
@@ -32,9 +32,10 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-        </ContentPage>   
+        </ContentPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <local:Accueil/>
+        
     </MasterDetailPage.Detail>
 </MasterDetailPage>

@@ -87,10 +87,27 @@ namespace Projet2_CSharp
                 return db.InsertAsync(item);
             }
         }
+        public Task<int> SaveFiliere(Filiere item)
+        {
+            if (item.id_filiere != 0)
+            {
+                return db.UpdateAsync(item);
+            }
+            else
+            {
+                return db.InsertAsync(item);
+            }
+        }
         public Task<int> SaveItemAsync(Etudiant item)
         {
 
             return db.InsertAsync(item);
+
+        }
+        public Task<int> UpdatEtud(Etudiant item)
+        {
+
+            return db.UpdateAsync(item);
 
         }
     }

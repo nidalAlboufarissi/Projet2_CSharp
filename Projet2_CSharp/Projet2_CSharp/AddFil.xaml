@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projet2_CSharp.AddFil">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            
+            <Entry x:Name="Nom" Placeholder="Nom de filiere" />
+            <Entry x:Name="responsable" Placeholder="Nom de Responsable "/>
+            <Button x:Name="valider"  WidthRequest="100" Clicked="Ajouter"></Button>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

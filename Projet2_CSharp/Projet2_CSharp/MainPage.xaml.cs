@@ -13,7 +13,13 @@ namespace Projet2_CSharp
 		public MainPage()
 		{
 			InitializeComponent();
-		}
+            cadi.Source = ImageSource.FromResource("Projet2_CSharp.cadi.jpg");
+            ensa.Source = ImageSource.FromResource("Projet2_CSharp.icon.jpg");
+            user.Source = ImageSource.FromResource("Projet2_CSharp.user.png");
+            pass.Source = ImageSource.FromResource("Projet2_CSharp.password.png");
+
+
+        }
         private async void Button_Clicked(object sender, EventArgs e)
         {
 
@@ -24,7 +30,7 @@ namespace Projet2_CSharp
                 login.Text = "";
                 password.Text = "";
             }
-            else await Navigation.PushAsync(new Accueil());
+            else await Navigation.PushAsync(new Menubar());
 
 
 

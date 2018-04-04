@@ -11,8 +11,8 @@
 namespace Projet2_CSharp {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Nidhak\\source\\repos\\Projet2_CSharp\\Projet2_CSharp\\Projet2_CSharp\\Menubar" +
-        ".xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Nidhak\\Desktop\\Projet2_CSharp\\Projet2_CSharp\\Projet2_CSharp\\Menubar.xaml" +
+        "")]
     public partial class Menubar : global::Xamarin.Forms.MasterDetailPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

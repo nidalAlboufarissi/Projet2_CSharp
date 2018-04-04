@@ -28,7 +28,7 @@ namespace Projet2_CSharp
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new Projet2_CSharp.Accueil());
+			MainPage = new NavigationPage(new Projet2_CSharp.MainPage());
 		}
 
 		protected override void OnStart ()

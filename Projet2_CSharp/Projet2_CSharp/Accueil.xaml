@@ -2,17 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:local="clr-namespace:Projet2_CSharp"
-
-             x:Class="Projet2_CSharp.Accueil">
+             x:Class="Projet2_CSharp.Accueil"
+                             Title="Accueil"
+>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout >
             <Label Text="Rechercher etudiant par filiere" FontSize="Large" HorizontalOptions="Center"/>
             <Picker Title="Choisir une filiere" x:Name="picker" HorizontalOptions="Center" SelectedIndexChanged="OnPickerSelectedIndexChanged"/>
-            <ListView  x:Name="listView" SeparatorVisibility="Default" ItemSelected="afficher" SeparatorColor="Black"  RowHeight="60">
+            <ScrollView HeightRequest="400">
+            <ListView  x:Name="listView" SeparatorVisibility="Default" ItemSelected="afficher" SeparatorColor="Black" Margin="20"  RowHeight="60">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+
                             <StackLayout Orientation="Vertical">
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding nom}" FontSize="Medium"/>
@@ -28,7 +31,12 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
+            </ScrollView>
+            <Image x:Name="add" WidthRequest="100">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ajouter"/>
+                </Image.GestureRecognizers>
+            </Image>
         </StackLayout>
 
     </ContentPage.Content>
